@@ -1,4 +1,4 @@
-package com.cristian.pruebayape.ui
+package com.cristian.pruebayape.ui.views
 
 import android.content.Intent
 import android.net.Uri
@@ -10,12 +10,17 @@ import coil.load
 import com.cristian.pruebayape.R
 import com.cristian.pruebayape.databinding.ActivityDetailRecipiesBinding
 import com.cristian.pruebayape.domain.models.IngredientsUI
-import com.cristian.pruebayape.ui.views.IngredientsAdapter
+import com.cristian.pruebayape.ui.adapters.IngredientsAdapter
 
 class DetailRecopiesActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailRecipiesBinding
     private val adapter: IngredientsAdapter = IngredientsAdapter()
+    private val GOOGLEPACKAGE = "com.google.android.apps.maps"
+    private val GEO = "geo:"
+    private val COMMA = ","
+    private val QUERY = "?q="
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailRecipiesBinding.inflate(layoutInflater)
@@ -26,21 +31,16 @@ class DetailRecopiesActivity : AppCompatActivity() {
 
     private fun getData() {
         intent.extras?.let {
-            val listIngredients = intent.getParcelableArrayListExtra<IngredientsUI>("recipeData")
-            println("Los ingredientes son: $listIngredients")
-
+            val listIngredients = intent.getParcelableArrayListExtra<IngredientsUI>(RECIPEDATA)
             with(binding) {
-                imgRecipe.load(it.getString("recipeStrMealThumb"))
-                idCountry.text =
-                    "${getString(R.string.country)}: ${it.getString("recipeNameArea")}"
+                imgRecipe.load(it.getString(RECIPESTRMEALTHUMB))
+                idCountry.text = "${getString(R.string.country)}: ${it.getString(RECIPENAMEAREA)}"
                 adapter.submitList(listIngredients)
                 recyclerIngredients.adapter = adapter
-                txtDetailsInstructions.text = it.getString("recipeStrInstructions")
+                txtDetailsInstructions.text = it.getString(RECIPESTRINSTRUCTIONS)
             }
-            val lat = it.getDouble("recipeLat")
-            println("Latitud: $lat")
-            val lng = it.getDouble("recipeLng")
-            println("Longitud: $lng")
+            val lat = it.getDouble(RECIPELAT)
+            val lng = it.getDouble(RECIPELNG)
             viewMap(lat, lng)
         }
     }
@@ -53,23 +53,25 @@ class DetailRecopiesActivity : AppCompatActivity() {
 
     private fun viewMap(lat: Double?, lng: Double?) {
         binding.btnMaps.setOnClickListener {
-
-            // Crea una URI con las coordenadas
-            val gmmIntentUri = Uri.parse("geo:$lat,$lng")
-
-            // Crea un Intent para abrir la aplicación de Google Maps
-            val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
-
-            // Especifica que deseas abrir Google Maps
-            mapIntent.setPackage("com.google.android.apps.maps")
-
-            // Verifica si la aplicación de Google Maps está instalada
+            val geoUri = "$GEO$lat$COMMA$lng$QUERY$lat$COMMA$lng"
+            val mapIntent = Intent(Intent.ACTION_VIEW, Uri.parse(geoUri))
+            mapIntent.setPackage(GOOGLEPACKAGE)
             if (mapIntent.resolveActivity(packageManager) != null) {
                 startActivity(mapIntent)
             } else {
-                Toast.makeText(this, "App no instalada", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.app_no_instalada), Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    companion object {
+        const val RECIPENAMEMEAL = "recipeNameMeal"
+        const val RECIPESTRMEALTHUMB = "recipeStrMealThumb"
+        const val RECIPENAMEAREA = "recipeNameArea"
+        const val RECIPESTRINSTRUCTIONS = "recipeStrInstructions"
+        const val RECIPEDATA = "recipeData"
+        const val RECIPELAT = "recipeLat"
+        const val RECIPELNG = "recipeLng"
     }
 
 }

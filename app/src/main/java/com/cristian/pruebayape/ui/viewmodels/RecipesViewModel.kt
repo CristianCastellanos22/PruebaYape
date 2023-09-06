@@ -21,7 +21,8 @@ class RecipesViewModel @Inject constructor(private val recipesUseCase: RecipesUs
     private val _recipesList = MutableLiveData<List<RecipesUI>>()
     val recipesList: LiveData<List<RecipesUI>> get() = _recipesList
 
-
+    private val _filteredRecipesList = MutableLiveData<List<RecipesUI>>()
+    val filteredRecipesList: LiveData<List<RecipesUI>> get() = _filteredRecipesList
 
     init {
         getRecipesCollection()
@@ -40,6 +41,24 @@ class RecipesViewModel @Inject constructor(private val recipesUseCase: RecipesUs
             _recipesList.value = apiResponseStatus.data
         }
         _status.value = apiResponseStatus as ApiResponseStatus<Any>
+    }
+
+    fun filterRecipes(query: String?) {
+        val filteredList = if (query.isNullOrBlank()) {
+            recipesList.value ?: emptyList()
+        } else {
+            recipesList.value?.filter { recipe ->
+                recipe.nameMeal.contains(query, ignoreCase = true) ||
+                        recipe.data.any { ingredient ->
+                            ingredient.strIngredient?.contains(
+                                query,
+                                ignoreCase = true
+                            ) == true
+                        }
+            } ?: emptyList()
+        }
+
+        _filteredRecipesList.postValue(filteredList)
     }
 
 }

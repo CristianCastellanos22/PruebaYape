@@ -3,4 +3,5 @@
     <string name="country">País de origen</string>
     <string name="ingredients">Ingredientes</string>
     <string name="instructions">Instrucciones</string>
+    <string name="app_no_instalada">App no instalada</string>
 </resources>

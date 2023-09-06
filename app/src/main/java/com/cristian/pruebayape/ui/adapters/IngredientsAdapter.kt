@@ -1,4 +1,4 @@
-package com.cristian.pruebayape.ui.views
+package com.cristian.pruebayape.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -12,11 +12,13 @@ class IngredientsAdapter : ListAdapter<IngredientsUI, IngredientsAdapter.Ingredi
     DiffCallback
 ) {
 
+    private val POINT = "•"
+
     inner class IngredientsListViewHolder(private val binding: IngredientItemListBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(ingredientsUI: IngredientsUI) {
             with(binding) {
-                idIngredient.text = "• ${ingredientsUI.strIngredient}"
+                idIngredient.text = "$POINT ${ingredientsUI.strIngredient}"
             }
         }
     }

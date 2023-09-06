@@ -1,4 +1,4 @@
-package com.cristian.pruebayape.ui.views
+package com.cristian.pruebayape.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
