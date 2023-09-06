@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">PruebaYape</string>
     <string name="country">País de origen</string>
     <string name="ingredients">Ingredientes</string>
     <string name="instructions">Instrucciones</string>
