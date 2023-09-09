@@ -8,17 +8,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cristian.pruebayape.databinding.IngredientItemListBinding
 import com.cristian.pruebayape.domain.models.IngredientsUI
 
+private const val POINT = "."
+
 class IngredientsAdapter : ListAdapter<IngredientsUI, IngredientsAdapter.IngredientsListViewHolder>(
     DiffCallback
 ) {
-
-    private val POINT = "•"
 
     inner class IngredientsListViewHolder(private val binding: IngredientItemListBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(ingredientsUI: IngredientsUI) {
             with(binding) {
-                idIngredient.text = "$POINT ${ingredientsUI.strIngredient}"
+                idIngredient.text = "$POINT ${ingredientsUI.ingredient}"
             }
         }
     }
@@ -41,7 +41,7 @@ class IngredientsAdapter : ListAdapter<IngredientsUI, IngredientsAdapter.Ingredi
         }
 
         override fun areContentsTheSame(oldItem: IngredientsUI, newItem: IngredientsUI): Boolean {
-            return oldItem.strIngredient == newItem.strIngredient
+            return oldItem.ingredient == newItem.ingredient
         }
 
     }

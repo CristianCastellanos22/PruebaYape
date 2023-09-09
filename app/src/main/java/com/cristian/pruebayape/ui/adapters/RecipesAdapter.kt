@@ -12,18 +12,17 @@ import com.cristian.pruebayape.domain.models.RecipesUI
 
 class RecipesAdapter(
     private val recipeOnClick: (RecipesUI) -> Unit
-) :
-    ListAdapter<RecipesUI, RecipesAdapter.RecipesListViewHolder>(DiffCallback) {
+) : ListAdapter<RecipesUI, RecipesAdapter.RecipesListViewHolder>(DiffCallback) {
 
     inner class RecipesListViewHolder(private val binding: RecipiesListItemsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(recipesUI: RecipesUI) {
             with(binding) {
-                idNameCategory.text = recipesUI.nameCategory
-                idNameMeal.text = recipesUI.nameMeal
-                idNameArea.text = recipesUI.nameArea
-                imgCat.load(recipesUI.strMealThumb) {
-                    placeholder(R.drawable.baseline_downloading).error(R.drawable.baseline_error_outline)
+                idNameCategory.text = recipesUI.category
+                idNameMeal.text = recipesUI.name
+                idNameArea.text = recipesUI.area
+                imgCat.load(recipesUI.thumbnail) {
+                    placeholder(R.drawable.baseline_image).error(R.drawable.baseline_error_outline)
                 }
                 cardRecipe.setOnClickListener {
                     recipeOnClick(recipesUI)
