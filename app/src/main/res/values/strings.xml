@@ -4,4 +4,8 @@
     <string name="ingredients">Ingredientes</string>
     <string name="instructions">Instrucciones</string>
     <string name="app_no_instalada">App no instalada</string>
+    <string name="no_data">Empty list, unexpected error</string>
+    <string name="buscar">Buscar...</string>
+    <string name="title_activity_map_screen">MapScreenActivity</string>
+    <string name="location_in">Location in %1$s, %2$s</string>
 </resources>
