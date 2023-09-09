@@ -5,5 +5,5 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class IngredientsUI(
-    val strIngredient: String?
+    val ingredient: String?
 ) : Parcelable

@@ -1,28 +1,43 @@
 package com.cristian.pruebayape.data.response
 
+import com.cristian.pruebayape.domain.models.OriginUI
+import com.cristian.pruebayape.domain.models.RecipesUI
 import com.google.gson.annotations.SerializedName
 
 data class RecipesResponse(
-    @SerializedName("id")
-    val id: String,
     @SerializedName("idMeal")
-    val idMeal: String,
+    val id: String,
     @SerializedName("nameMeal")
-    val nameMeal: String,
+    val name: String,
     @SerializedName("nameCategory")
-    val nameCategory: String,
+    val category: String,
     @SerializedName("nameArea")
-    val nameArea: String,
+    val area: String,
     @SerializedName("strInstructions")
-    val strInstructions: String,
+    val instructions: String,
     @SerializedName("strMealThumb")
-    val strMealThumb: String,
+    val thumbnail: String,
     @SerializedName("strTags")
-    val strTags: String,
+    val tags: String,
     @SerializedName("data")
-    val data: ArrayList<IngredientsResponse>,
-    @SerializedName("lat")
+    val ingredients: List<IngredientsResponse>,
     val lat: Double,
-    @SerializedName("lng")
     val lng: Double
 )
+
+fun RecipesResponse.toDomain(): RecipesUI {
+    return RecipesUI(
+        id = id,
+        name = name,
+        category = category,
+        area = area,
+        instructions = instructions,
+        thumbnail = thumbnail,
+        tags = tags,
+        ingredients = ingredients.map { it.toDomain() },
+        originUI = OriginUI(
+            lat = lat,
+            lng = lng
+        )
+    )
+}

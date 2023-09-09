@@ -6,14 +6,12 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class RecipesUI(
     val id: String,
-    val idMeal: String,
-    val nameMeal: String,
-    val nameCategory: String,
-    val nameArea: String,
-    val strInstructions: String,
-    val strMealThumb: String,
-    val strTags: String,
-    val data: ArrayList<IngredientsUI>,
-    val lat: Double,
-    val lng: Double
+    val name: String,
+    val category: String,
+    val area: String,
+    val instructions: String,
+    val thumbnail: String,
+    val tags: String,
+    val ingredients: List<IngredientsUI>,
+    val originUI: OriginUI
 ) : Parcelable

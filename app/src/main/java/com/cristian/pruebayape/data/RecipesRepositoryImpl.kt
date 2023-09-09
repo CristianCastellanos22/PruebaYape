@@ -1,9 +1,8 @@
 package com.cristian.pruebayape.data
 
-import com.cristian.pruebayape.data.mappers.toDomain
 import com.cristian.pruebayape.data.network.RecipesClient
-import com.cristian.pruebayape.data.network.bodyOrException
-import com.cristian.pruebayape.data.response.ApiResponseStatus
+import com.cristian.pruebayape.data.network.resultOf
+import com.cristian.pruebayape.data.response.toDomain
 import com.cristian.pruebayape.domain.models.RecipesUI
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
@@ -13,15 +12,17 @@ class RecipesRepositoryImpl @Inject constructor(
     private val recipesServices: RecipesClient,
     private val dispatcher: CoroutineDispatcher,
 ) : RecipesRepository {
-    override suspend fun getRecipes(): ApiResponseStatus<List<RecipesUI>> {
-        return withContext(dispatcher) {
-            try {
-                val response = recipesServices.doGetRecipes().bodyOrException()
-                val recipes = response.map { it.toDomain() }
-                ApiResponseStatus.Success(recipes)
-            } catch (e: Exception) {
-                ApiResponseStatus.Error("Error en consulta \nSugerencias: \n - Verifique su conexión a internet. \n - Intente más tarde.")
-            }
+    override suspend fun getRecipes(): Result<List<RecipesUI>> = resultOf {
+        val result = withContext(dispatcher) {
+            recipesServices.doGetRecipes()
+        }
+        val body = result.body()
+
+        if (result.isSuccessful && body != null) {
+            body.map { it.toDomain() }
+        } else {
+            val errorMessage = result.errorBody().toString()
+            error(errorMessage)
         }
     }
 

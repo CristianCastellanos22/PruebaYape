@@ -4,61 +4,54 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cristian.pruebayape.data.response.ApiResponseStatus
 import com.cristian.pruebayape.domain.RecipesUseCase
 import com.cristian.pruebayape.domain.models.RecipesUI
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+private const val ERROR_MESSAGE = "Error getting the recipes"
+
 @HiltViewModel
 class RecipesViewModel @Inject constructor(private val recipesUseCase: RecipesUseCase) :
     ViewModel() {
 
-    private val _status = MutableLiveData<ApiResponseStatus<Any>>()
-    val status: LiveData<ApiResponseStatus<Any>> get() = _status
+    private val _status = MutableLiveData<Status<Any>>()
+    val status: LiveData<Status<Any>>
+        get() = _status
 
-    private val _recipesList = MutableLiveData<List<RecipesUI>>()
-    val recipesList: LiveData<List<RecipesUI>> get() = _recipesList
+    private val cacheRecipesList = mutableListOf<RecipesUI>()
 
-    private val _filteredRecipesList = MutableLiveData<List<RecipesUI>>()
-    val filteredRecipesList: LiveData<List<RecipesUI>> get() = _filteredRecipesList
-
-    init {
-        getRecipesCollection()
-    }
-
-    private fun getRecipesCollection() {
+    fun getRecipesCollection() {
+        _status.value = Status.Loading()
         viewModelScope.launch {
-            _status.value = ApiResponseStatus.Loading()
-            val response = recipesUseCase.invoke()
-            handleResponseStatus(response)
+            recipesUseCase.invoke()
+                .onSuccess { recipes ->
+                    _status.value = Status.Success(recipes)
+                    cacheRecipesList.clear()
+                    cacheRecipesList.addAll(recipes)
+                }
+                .onFailure {
+                    _status.value = Status.Error(it.message ?: ERROR_MESSAGE)
+                }
         }
-    }
-
-    private fun handleResponseStatus(apiResponseStatus: ApiResponseStatus<List<RecipesUI>>) {
-        if (apiResponseStatus is ApiResponseStatus.Success) {
-            _recipesList.value = apiResponseStatus.data
-        }
-        _status.value = apiResponseStatus as ApiResponseStatus<Any>
     }
 
     fun filterRecipes(query: String?) {
         val filteredList = if (query.isNullOrBlank()) {
-            recipesList.value ?: emptyList()
+            cacheRecipesList
         } else {
-            recipesList.value?.filter { recipe ->
-                recipe.nameMeal.contains(query, ignoreCase = true) ||
-                        recipe.data.any { ingredient ->
-                            ingredient.strIngredient?.contains(
+            cacheRecipesList.filter { recipe ->
+                recipe.name.contains(query, ignoreCase = true) ||
+                        recipe.ingredients.any { ingredient ->
+                            ingredient.ingredient?.contains(
                                 query,
                                 ignoreCase = true
                             ) == true
                         }
-            } ?: emptyList()
+            }
         }
-
-        _filteredRecipesList.postValue(filteredList)
+        _status.value = Status.UpdateData(filteredList)
     }
 
 }
