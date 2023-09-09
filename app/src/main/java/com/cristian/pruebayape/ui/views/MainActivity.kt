@@ -8,43 +8,34 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.cristian.pruebayape.data.response.ApiResponseStatus
+import com.cristian.pruebayape.R
 import com.cristian.pruebayape.databinding.ActivityMainBinding
-import com.cristian.pruebayape.ui.views.DetailRecopiesActivity.Companion.RECIPEDATA
-import com.cristian.pruebayape.ui.views.DetailRecopiesActivity.Companion.RECIPELAT
-import com.cristian.pruebayape.ui.views.DetailRecopiesActivity.Companion.RECIPELNG
-import com.cristian.pruebayape.ui.views.DetailRecopiesActivity.Companion.RECIPENAMEAREA
-import com.cristian.pruebayape.ui.views.DetailRecopiesActivity.Companion.RECIPENAMEMEAL
-import com.cristian.pruebayape.ui.views.DetailRecopiesActivity.Companion.RECIPESTRINSTRUCTIONS
-import com.cristian.pruebayape.ui.views.DetailRecopiesActivity.Companion.RECIPESTRMEALTHUMB
-import com.cristian.pruebayape.ui.viewmodels.RecipesViewModel
+import com.cristian.pruebayape.domain.models.RecipesUI
 import com.cristian.pruebayape.ui.adapters.RecipesAdapter
+import com.cristian.pruebayape.ui.viewmodels.RecipesViewModel
+import com.cristian.pruebayape.ui.viewmodels.Status
+import com.cristian.pruebayape.ui.views.DetailRecipesActivity.Companion.RECIPE_NAME_MEAL
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private var adapter: RecipesAdapter = RecipesAdapter { recipe ->
-        startActivity(Intent(this@MainActivity, DetailRecopiesActivity::class.java).apply {
-            putExtra(RECIPENAMEMEAL, recipe.nameMeal)
-            putExtra(RECIPESTRMEALTHUMB, recipe.strMealThumb)
-            putExtra(RECIPENAMEAREA, recipe.nameArea)
-            putExtra(RECIPESTRINSTRUCTIONS, recipe.strInstructions)
-            putExtra(RECIPEDATA, recipe.data)
-            putExtra(RECIPELAT, recipe.lat)
-            putExtra(RECIPELNG, recipe.lng)
-        })
-    }
+    private lateinit var adapter: RecipesAdapter
     private val viewModel: RecipesViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initialize()
+    }
+
+    private fun initialize() {
         configRecycler()
         observer()
         searchView()
+        viewModel.getRecipesCollection()
     }
 
     private fun configRecycler() {
@@ -52,35 +43,43 @@ class MainActivity : AppCompatActivity() {
             contentRecycler.layoutManager =
                 LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
             contentRecycler.setHasFixedSize(true)
+
+            adapter = RecipesAdapter { recipe ->
+                startActivity(Intent(this@MainActivity, DetailRecipesActivity::class.java).apply {
+                    putExtra(RECIPE_NAME_MEAL, recipe)
+                })
+            }
+            contentRecycler.adapter = adapter
         }
     }
 
     private fun observer() {
         with(binding) {
             viewModel.status.observe(this@MainActivity) {
-                with(binding) {
-                    when (it) {
-                        is ApiResponseStatus.Error -> {
-                            loadingWheel.visibility = View.GONE
-                            Toast.makeText(this@MainActivity, it.messageId, Toast.LENGTH_SHORT)
-                                .show()
+                when (it) {
+                    is Status.Error -> {
+                        loadingWheel.visibility = View.GONE
+                        Toast.makeText(this@MainActivity, it.messageId, Toast.LENGTH_SHORT).show()
+                    }
+                    is Status.Loading -> loadingWheel.visibility = View.VISIBLE
+                    is Status.Success -> {
+                        loadingWheel.visibility = View.GONE
+                        (it.data as? List<RecipesUI>)?.let { list ->
+                            if (list.isEmpty()) {
+                                Toast.makeText(
+                                    this@MainActivity,
+                                    getString(R.string.no_data),
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            } else {
+                                adapter.submitList(list)
+                            }
                         }
-
-                        is ApiResponseStatus.Loading -> loadingWheel.visibility = View.VISIBLE
-                        is ApiResponseStatus.Success -> loadingWheel.visibility = View.GONE
+                    }
+                    is Status.UpdateData -> {
+                        adapter.submitList(it.data as? List<RecipesUI>)
                     }
                 }
-            }
-            viewModel.recipesList.observe(this@MainActivity) {
-                when {
-                    !it.isNullOrEmpty() -> {
-                        adapter.submitList(it)
-                        contentRecycler.adapter = adapter
-                    }
-                }
-            }
-            viewModel.filteredRecipesList.observe(this@MainActivity) { filteredRecipes ->
-                adapter.submitList(filteredRecipes)
             }
         }
     }
