@@ -16,14 +16,14 @@ private const val ERROR_MESSAGE = "Error getting the recipes"
 class RecipesViewModel @Inject constructor(private val recipesUseCase: RecipesUseCase) :
     ViewModel() {
 
-    private val _status = MutableLiveData<Status<Any>>()
-    val status: LiveData<Status<Any>>
+    private val _status = MutableLiveData<Status>()
+    val status: LiveData<Status>
         get() = _status
 
     private val cacheRecipesList = mutableListOf<RecipesUI>()
 
     fun getRecipesCollection() {
-        _status.value = Status.Loading()
+        _status.value = Status.Loading
         viewModelScope.launch {
             recipesUseCase.invoke()
                 .onSuccess { recipes ->
