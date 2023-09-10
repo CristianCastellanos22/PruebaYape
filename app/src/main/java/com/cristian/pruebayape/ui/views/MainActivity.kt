@@ -59,10 +59,10 @@ class MainActivity : AppCompatActivity() {
                 when (it) {
                     is Status.Error -> {
                         loadingWheel.visibility = View.GONE
-                        Toast.makeText(this@MainActivity, it.messageId, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@MainActivity, it.message, Toast.LENGTH_SHORT).show()
                     }
                     is Status.Loading -> loadingWheel.visibility = View.VISIBLE
-                    is Status.Success -> {
+                    is Status.Success<*> -> {
                         loadingWheel.visibility = View.GONE
                         (it.data as? List<RecipesUI>)?.let { list ->
                             if (list.isEmpty()) {
@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
                             }
                         }
                     }
-                    is Status.UpdateData -> {
+                    is Status.UpdateData<*> -> {
                         adapter.submitList(it.data as? List<RecipesUI>)
                     }
                 }
