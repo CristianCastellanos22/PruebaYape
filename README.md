@@ -108,11 +108,11 @@ Para ejecutar los test debemos abrir una terminal, navegar hasta la ruta del pro
    maestro test pruebaYape.yaml
    ```
 
+![Emulator Screen Shot][screenshot-test]
+
 ![Terminal Screen Shot][emulator-screenshot]
 
 Las pruebas automatizadas se realizaron sobre un emulador en Android Studio, antes de ejecutar el test se debe iniciar el emulador e instalar el proyecto.
-
-![Emulator Screen Shot][screenshot-test]
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
