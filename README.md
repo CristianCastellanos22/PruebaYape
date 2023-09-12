@@ -123,5 +123,5 @@ Las pruebas automatizadas se realizaron sobre un emulador en Android Studio, ant
 [screenshot-main]: images/Main.png
 [screenshot-details]: images/Details.png
 [screenshot-map]: images/Map.png
-[emulator-screenshot]: images/Automatizadas.mp4
+[emulator-screenshot]: images/Automatizadas.gif
 [screenshot-test]: images/Test.png
