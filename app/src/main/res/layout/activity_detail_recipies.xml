@@ -85,7 +85,7 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_maps" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/txt_ingredients"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_8dp"
@@ -107,7 +107,7 @@
             android:layout_marginTop="@dimen/margin_8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_ingredients" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_ingredients"
