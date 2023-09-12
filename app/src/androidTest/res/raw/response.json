@@ -1,0 +1,261 @@
+[
+  {
+    "idMeal": "1",
+    "nameMeal": "AJIACO COLOMBIANO",
+    "nameCategory": "Sopas",
+    "nameArea": "Colombia",
+    "strInstructions": "En una olla grande, colocar el pollo, el maíz, el caldo de pollo, cilantro, la cebolla larga, ajo, sal y pimienta. Agregue el agua y poner a hervir, bajar el fuego a medio y cocinar durante unos 35 a 40 minutos, hasta que el pollo esté cocido y tierno. Retire el pollo y reservar.\r\n\r\nContinuar cocinando maíz durante 30 minutos más. Retirar la cebolla larga y añadir las papas rojas, papas blancas, y las Guascas. Cocine durante 30 minutos\r\n\r\nDestape la olla y agregue la papa criolla y cocine a fuego lento durante 15 a 20 minutos, sazonar con sal y pimienta\r\n\r\nCortar la carne de pollo en trozos pequeños y poner de nuevo en la olla. Servir el Ajiaco caliente con alcaparras y crema de leche.",
+    "strMealThumb": "https://www.mycolombianrecipes.com/wp-content/uploads/2009/03/Receta-de-Ajiaco-Colombiano.jpg",
+    "strTags": "A",
+    "data": [
+      {
+        "strIngredient": "3 pechugas de pollo,con hueso y sin piel"
+      },
+      {
+        "strIngredient": "12 tazas de agua"
+      },
+      {
+        "strIngredient": "3 mazorcas de maíz fresco, cortadas en 2 piezas"
+      },
+      {
+        "strIngredient": "Sal y pimienta al gusto"
+      },
+      {
+        "strIngredient": "2 cubos de caldo de pollo"
+      },
+      {
+        "strIngredient": "3 cebollas largas"
+      },
+      {
+        "strIngredient": "2 dientes de ajo, picados"
+      },
+      {
+        "strIngredient": "3 cucharadas de cilantro fresco picado"
+      },
+      {
+        "strIngredient": "2 tazas de papa criolla"
+      },
+      {
+        "strIngredient": "3 papas blancas medianas, peladas y en rodajas"
+      },
+      {
+        "strIngredient": "3 papas rojas medianas, peladas y en rodajas"
+      },
+      {
+        "strIngredient": "⅓ taza de guascas"
+      },
+      {
+        "strIngredient": "1 taza de crema espesa para servir"
+      },
+      {
+        "strIngredient": "1 taza de alcaparras para servir"
+      }
+    ],
+    "lat": 4.659075190927651,
+    "lng": -74.09372545494584,
+    "id": "1"
+  },
+  {
+    "idMeal": "2",
+    "nameMeal": "Torta negra",
+    "nameCategory": "Postres",
+    "nameArea": "Colombia",
+    "strInstructions": "De una o dos semanas antes de hacer la torta, coloque las ciruelas pasas, uvas pasas, ¼ taza de ron y ½ taza de vino en un recipiente no reactivo.\r\n\r\nCuando estué listo para hacer las tortas, precalentar el horno a 350 grados F.\r\n\r\nEngrase dos moldes de 8 pulgadas para tortas redondas y reservar.\r\n\r\nColoque las pasas, ciruelas y brevas en el procesador de alimentos y procese durante unos 60 segundos. Transfiera la mezcla de la fruta a un tazón y reservar.\r\n\r\nEn un tazón grande, bata la harina, el polvo para hornear, la canela, el clavo y la nuez moscada y reservar.\r\n\r\nCon una batidora eléctrica, bata la mantequilla y el azúcar. Raspe los lados del tazón, añadir el extracto de vainilla, y añadir los huevos, uno a la vez. Agregue la mezcla de harina y mezclar en la velocidad más baja durante aproximadamente un minuto. Añadir el dulce quemado y mezclar durante un minuto muás. Agregue la fruta con las manos y mezcle hasta que todo esté bien combinado.\r\n\r\nDivida la masa en forma pareja entre los dos moldes y hornear hasta que un probador insertado en el centro salga limpio, aproximadamente 1 hora y 40 minutos. Retirar del horno y dejar que se enfríe durante unos 5 a 10 minutos.\r\n\r\nDesmoldar las tortas y untar con el ron y el vino restante. Envuelva las tortas con papel plástico y luego con papel de aluminio. Dejelas reposar a temperatura ambiente durante al menos 3 días antes de servir o hasta tres semanas en la nevera antes de decorarla.",
+    "strMealThumb": "https://www.mycolombianrecipes.com/wp-content/uploads/2013/11/Colombian-Black-Cake.jpg",
+    "strTags": "T",
+    "data": [
+      {
+        "strIngredient": "2 tazas de ciruelas pasas sin semilla"
+      },
+      {
+        "strIngredient": "2 tazas de uvas pasas"
+      },
+      {
+        "strIngredient": "1 taza de vino de Oporto"
+      },
+      {
+        "strIngredient": "½ taza de ron oscuro"
+      },
+      {
+        "strIngredient": "2 tazas de brevas caladas"
+      },
+      {
+        "strIngredient": "1 libra de mantequilla"
+      },
+      {
+        "strIngredient": "1 libra de azúcar"
+      },
+      {
+        "strIngredient": "12 huevos grandes"
+      },
+      {
+        "strIngredient": "1 libra de harina"
+      },
+      {
+        "strIngredient": "1 cucharadita de polvo para hornear"
+      },
+      {
+        "strIngredient": "1 cucharadita de canela molida"
+      },
+      {
+        "strIngredient": "½ cucharadita de nuez moscada molida"
+      },
+      {
+        "strIngredient": "Media cucharadita de clavo molido"
+      },
+      {
+        "strIngredient": "1 cucharada de extracto de vainilla"
+      },
+      {
+        "strIngredient": "3 cucharadas de dulce quemado o melaza"
+      }
+    ],
+    "lat": 6.24915090984889,
+    "lng": -75.56541920952273,
+    "id": "2"
+  },
+  {
+    "idMeal": "3",
+    "nameMeal": "Leche de tigre",
+    "nameCategory": "Postres",
+    "nameArea": "Perú",
+    "strInstructions": "Trocear la corvina, la cebolla, el ajo, el jengibre, el apio y el ají grosso modo. Añadir el cilantro.\r\n\r\nIncorporar todos los ingredientes de la receta al procesador de alimentos, salpimentar y batir junto al hielo hasta obtener la consistencia deseada.\r\n\r\nServir bien frío en vaso acompañado de patacones fritos, lima, cilantro y choclo al gusto. O reservar para la elaboración de un ceviche.",
+    "strMealThumb": "https://imag.bonviveur.com/leche-de-tigre-decorada-con-choclo-cilantro-lima-y-pantacones-fritos.webp",
+    "strTags": "L",
+    "data": [
+      {
+        "strIngredient": "150 g de corvina"
+      },
+      {
+        "strIngredient": "150 ml de zumo de lima"
+      },
+      {
+        "strIngredient": "150 ml de caldo de pescado"
+      },
+      {
+        "strIngredient": "15 g de ajo"
+      },
+      {
+        "strIngredient": "15 g de jengibre"
+      },
+      {
+        "strIngredient": "1-2 ají limo (al gusto)"
+      },
+      {
+        "strIngredient": "20 g de apio"
+      },
+      {
+        "strIngredient": "Unas ramas de cilantro"
+      },
+      {
+        "strIngredient": "½ cebolla roja"
+      },
+      {
+        "strIngredient": "Cubitos de hielo"
+      },
+      {
+        "strIngredient": "Sal y pimienta blanca"
+      },
+      {
+        "strIngredient": "Para decorar: cilantro, lima, patacones y choclo"
+      }
+    ],
+    "lat": -12.044112824847838,
+    "lng": -76.97587186645745,
+    "id": "3"
+  },
+  {
+    "idMeal": "4",
+    "nameMeal": "Ají de gallina",
+    "nameCategory": "Postres",
+    "nameArea": "Perú",
+    "strInstructions": "Cocer una pechuga de gallina o pollo en 750 ml de agua con sal hasta que esté tierna; escurrir y dejar enfriar. Reservar el caldo.\r\n\r\nDesmenuzar la carne deshilachándola; debe estar muy tierna.\r\n\r\nPoner a remojar 2 rebanadas de pan de molde en el caldo de cocer el ave.\r\n\r\nPicar media cebolla y sofreírla en 60 ml de aceite vegetal hasta que esté transparente.\r\n\r\nCuando la cebolla esté casi lista, agregar 2 dientes de ajo pelados y majados, y darle unas vueltas.\r\n\r\nAgregar 1 cucharada de pasta de ají amarillo y sofreír brevemente.\r\n\r\nPoner la carne desmenuzada en la sartén y mezclar.\r\n\r\nAñadir media cucharadita de pimienta negra.\r\n\r\nIncorporar el pan remojado y escurrido, y mezclar bien, al tiempo que se desmenuza.\r\n\r\nCuando el guiso vaya espesando, picar 1 cucharada de nueces y añadirlas.\r\n\r\nAñadir 500 ml del caldo de pollo (recoger también el que ha sobrado de remojar el pan).\r\n\r\nAgregar 50 ml de la nata o leche evaporada, o bien nata líquida o crema de leche al gusto, y cocer durante 10 minutos para que los sabores se fundan.\r\n\r\nAparte, cocer 250 g de arroz blanco en agua con sal al gusto, durante el tiempo que indique la variedad de arroz elegida y escurrirlo.\r\n\r\nCocer 2 patatas limpias y enteras en agua salada durante 25 minutos o hasta que estén completamente cocidas, dejarlas enfriar y cortar en rodajas.\r\n\r\nCocer 3 huevos durante 10 minutos en agua hirviendo, refrescar en agua fría, pelarlos y cortar en rodajas igualmente. Servir el ají de gallina con el huevo duro, el arroz cocido, aceitunas negras al gusto y las patatas cocidas.\r\n\r\n",
+    "strMealThumb": "https://imag.bonviveur.com/aji-de-gallina-final.webp",
+    "strTags": "A",
+    "data": [
+      {
+        "strIngredient": "1 pechuga de gallina o pollo sin piel y sin grasa"
+      },
+      {
+        "strIngredient": "Sal"
+      },
+      {
+        "strIngredient": "750 ml de agua"
+      },
+      {
+        "strIngredient": "2 rebanadas de pan blanco"
+      },
+      {
+        "strIngredient": "1/2 cebolla picada"
+      },
+      {
+        "strIngredient": "60 ml de aceite vegetal"
+      },
+      {
+        "strIngredient": "2 dientes de ajo"
+      },
+      {
+        "strIngredient": "1 cucharada colmada de pasta de ají amarillo"
+      },
+      {
+        "strIngredient": "1/2 cucharadita de pimienta negra"
+      },
+      {
+        "strIngredient": "1 cucharada de nueces tostadas y picadas"
+      },
+      {
+        "strIngredient": "50 ml de leche evaporada o nata líquida/crema de leche"
+      },
+      {
+        "strIngredient": "250 g de arroz blanco"
+      },
+      {
+        "strIngredient": "2 patatas"
+      },
+      {
+        "strIngredient": "3 huevos"
+      },
+      {
+        "strIngredient": "Aceitunas negras al gusto"
+      }
+    ],
+    "lat": -12.044112824847838,
+    "lng": -76.97587186645745,
+    "id": "4"
+  },
+  {
+    "idMeal": "5",
+    "nameMeal": "Pulpo a la gallega (Pulpo á feira)",
+    "nameCategory": "Acompañamiento",
+    "nameArea": "España",
+    "strInstructions": "Lavar el pulpo descongelado con agua fría, poner agua a hervir con la cebolla cortada por la mitad y asustar el pulpo introduciéndolo 3 veces en el agua hirviendo antes de dejarlo cocer\r\n\r\nCocer el pulpo entre 30 y 40 minutos.\r\n\r\nComprobar el punto de cocción del pulpo pinchándolo en la parte superior de una pata: debe notarse tierno con una ligera resistencia\r\n\r\nCuando esté en su punto, retirar la olla del fuego, taparla y dejar reposar el pulpo 20 minutos. Luego, cortar el pulpo en rodajas con unas tijeras\r\n\r\nSi se desea acompañar con patatas, cocer estas en el agua usada para cocer el pulpo y servir en una fuente aparte\r\n\r\nAliñar el pulpo con aceite de oliva virgen extra, pimentón dulce, pimentón picante y sal gruesa",
+    "strMealThumb": "https://imag.bonviveur.com/presentacion-del-pulpo-a-la-gallega.webp",
+    "strTags": "P",
+    "data": [
+      {
+        "strIngredient": "1 pulpo de unos 2 kg"
+      },
+      {
+        "strIngredient": "1 cebolla"
+      },
+      {
+        "strIngredient": "Aceite de oliva virgen extra"
+      },
+      {
+        "strIngredient": "Pimentón dulce"
+      },
+      {
+        "strIngredient": "Pimentón picante"
+      },
+      {
+        "strIngredient": "Sal gruesa"
+      },
+      {
+        "strIngredient": "Patatas (opcional)"
+      }
+    ],
+    "lat": 40.43211345915417,
+    "lng": -3.687443793827658,
+    "id": "5"
+  }
+]

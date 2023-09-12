@@ -5,7 +5,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
     id("kotlin-kapt")
-    id ("com.google.dagger.hilt.android")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -53,12 +53,15 @@ dependencies {
     //Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:okhttp:3.14.9")
 
     //Dagger Hilt
     implementation("com.google.dagger:hilt-android:2.48")
+    kapt("com.google.dagger:hilt-compiler:2.48")
+
+    //Navigation
     implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
     implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
-    kapt("com.google.dagger:hilt-compiler:2.48")
 
     //LiveData
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
@@ -70,6 +73,8 @@ dependencies {
     //Maps
     implementation ("com.google.android.gms:play-services-maps:18.1.0")
 
+    implementation("androidx.test.espresso:espresso-contrib:3.5.1")
+
     testImplementation("junit:junit:4.13.2")
     testImplementation("io.mockk:mockk:1.12.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -78,5 +83,11 @@ dependencies {
     testImplementation("org.mockito.kotlin:mockito-kotlin:4.1.0")
     testImplementation("androidx.arch.core:core-testing:2.2.0")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1")
-
+    androidTestImplementation("com.squareup.okhttp3:mockwebserver:4.11.0")
+    androidTestImplementation("androidx.test:rules:1.2.0")
+    androidTestImplementation("org.awaitility:awaitility:4.0.1") {
+        exclude("org.hamcrest")
+    }
+    androidTestImplementation("androidx.test:runner:1.1.0")
+    androidTestImplementation("androidx.test:rules:1.1.0")
 }

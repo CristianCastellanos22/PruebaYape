@@ -13,18 +13,23 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
 
+    companion object {
+        internal var BASE_URL = "https://63d6fe5aafbba6b7c9361e6d.mockapi.io/"
+    }
+
     @Singleton
     @Provides
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://63d6fe5aafbba6b7c9361e6d.mockapi.io/")
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
     @Singleton
     @Provides
-    fun provideLoginClient(retrofit: Retrofit): RecipesClient {
+    fun provideRecipes(retrofit: Retrofit): RecipesClient {
         return retrofit.create(RecipesClient::class.java)
     }
+
 }
