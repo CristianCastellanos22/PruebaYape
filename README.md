@@ -10,7 +10,7 @@
 <h3 align="center">Proyecto Prueba Yape</h3>
 
   <p align="center">
-    Se realiza App escrita en kotlin para proceso de seleccion Yape, la cual muestra un listado de recetas, una vista de detalla y una vista de mapa con un marcador.
+    Se realiza App escrita en kotlin para proceso de seleccion Yape, la cual muestra un listado de recetas, una vista de detalle y una vista de mapa con un marcador.
     <br />
   </p>
 </div>
