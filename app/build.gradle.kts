@@ -85,9 +85,6 @@ dependencies {
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1")
     androidTestImplementation("com.squareup.okhttp3:mockwebserver:4.11.0")
     androidTestImplementation("androidx.test:rules:1.2.0")
-    androidTestImplementation("org.awaitility:awaitility:4.0.1") {
-        exclude("org.hamcrest")
-    }
     androidTestImplementation("androidx.test:runner:1.1.0")
     androidTestImplementation("androidx.test:rules:1.1.0")
 }
