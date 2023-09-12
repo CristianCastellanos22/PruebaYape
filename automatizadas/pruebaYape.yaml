@@ -1,0 +1,28 @@
+appId: com.cristian.pruebayape
+env: 
+    text_search: arr
+---
+- launchApp
+# - tapOn:
+#     id: "com.cristian.pruebayape:id/content_recycler"
+- swipe:
+    direction: UP
+- tapOn:
+    id: "com.cristian.pruebayape:id/search_src_text"
+- inputText: ${text_search}
+- tapOn:
+    id: "com.cristian.pruebayape:id/img_cat"
+    index: 0
+- scroll
+- tapOn:
+    id: "com.cristian.pruebayape:id/btn_maps"
+- extendedWaitUntil:
+    visible: "Location in 4.659075190927651, -74.09372545494584. "
+- tapOn: "Location in 4.659075190927651, -74.09372545494584. "    
+- back
+- back
+- tapOn:
+    id: "com.cristian.pruebayape:id/search_close_btn"
+- hideKeyboard    
+- swipe:
+    direction: UP    
