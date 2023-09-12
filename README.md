@@ -41,7 +41,7 @@
 </details>
 
 <!-- ABOUT THE PROJECT -->
-## Acerca del proyecto
+### Acerca del proyecto
 
 La APP cuenta con tres pantallas.
 * Listado de recetas y busqueda, por nombre e ingredientes.
