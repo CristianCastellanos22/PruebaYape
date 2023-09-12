@@ -22,16 +22,16 @@
   <summary>Tabla de contenidos</summary>
   <ol>
     <li>
-      <a href="#Acerca del projecto">Acerca del proyecto</a>
+      <a href="#Acerca del proyecto">Acerca del proyecto</a>
       <ul>
-        <li><a href="#built-with">Construido con</a></li>
+        <li><a href="#Construido con">Construido con</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Primeros pasos</a>
+      <a href="#Primeros pasos">Primeros pasos</a>
       <ul>
-        <li><a href="#prerequisites">Pre-requisitos</a></li>
-        <li><a href="#installation">Instalación</a></li>
+        <li><a href="#Pre-requisitos">Pre-requisitos</a></li>
+        <li><a href="#Instalación">Instalación</a></li>
       </ul>
     </li>
     <li>
